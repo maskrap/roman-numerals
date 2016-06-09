@@ -4,36 +4,36 @@ var numTen;
 var numHun;
 var numTho;
 var romeNum = [];
-var romeInt = [1000, 500, 100, 50, 10, 5, 1]
-var whichRome = function(num) {
-  if (num === 1) {
-    return 'I';
-  }
-  else if (num === 5) {
-    return 'V';
-  }
-  else if (num === 10)  {
-    return 'X';
-  }
-  else if (num === 50)  {
-    return 'L';
-  }
-  else if (num === 100) {
-    return 'C';
-  }
-  else if (num === 500) {
-    return 'D';
-  }
-  else if (num === 1000)  {
-    return 'M';
-  }
-};
+// var romeInt = [1000, 500, 100, 50, 10, 5, 1]
+// var whichRome = function(num) {
+//   if (num === 1) {
+//     return 'I';
+//   }
+//   else if (num === 5) {
+//     return 'V';
+//   }
+//   else if (num === 10)  {
+//     return 'X';
+//   }
+//   else if (num === 50)  {
+//     return 'L';
+//   }
+//   else if (num === 100) {
+//     return 'C';
+//   }
+//   else if (num === 500) {
+//     return 'D';
+//   }
+//   else if (num === 1000)  {
+//     return 'M';
+//   }
+// };
 var romanizer = function() {
   for (i = 0; i < numTho; i++)  {
       romeNum.push("M");
   };
   for (i = 0; i < numHun; i++)  {
-    debugger;
+    // debugger;
     if (numHun === 4)  {
       romeNum.push("CD");
       break;

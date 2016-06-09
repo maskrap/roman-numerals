@@ -1,6 +1,8 @@
 // =================BackEnd===================
-var numTen;
 var numOne;
+var numTen;
+var numHun;
+var numTho;
 var romeNum = [];
 var romeInt = [1000, 500, 100, 50, 10, 5, 1]
 var whichRome = function(num) {
@@ -26,7 +28,33 @@ var whichRome = function(num) {
     return 'M';
   }
 };
-var romanizer = function(num) {
+var romanizer = function() {
+  for (i = 0; i < numTho; i++)  {
+      romeNum.push("M");
+  };
+  for (i = 0; i < numHun; i++)  {
+    debugger;
+    if (numHun === 4)  {
+      romeNum.push("CD");
+      break;
+    }
+    else if (numHun === 9) {
+      romeNum.push("CM");
+      break;
+      }
+
+    else if (numHun >= 5) {
+      // debugger;
+    romeNum.push("D");
+    for (i = 0; i < (numHun - 5); i++)  {
+      romeNum.push("C");
+      };
+    break;
+    }
+    else {
+      romeNum.push("C");
+    }
+  };
   for (i = 0; i < numTen; i++)  {
     if (numTen === 4)  {
       romeNum.push("XL");
@@ -98,10 +126,12 @@ $(function() {
   $('#romannumeral').submit(function(event) {
     event.preventDefault();
     var number = parseInt($('#numbers').val());
-    numTen = (number - (number%10))/10;
     numOne = (number % 10);
+    numTen = ((number % 100) - ((number % 100)%10))/10;
+    numHun = ((number % 1000) - ((number % 1000) % 100))/100;
+    numTho = (number - (number % 1000))/1000;
     // $('#results').text(romanizer(number));
-    romanizer(number);
+    romanizer();
     $('#results').text(romeNum.join(''));
     $('#result').show();
     $('#romannumeral').toggle();

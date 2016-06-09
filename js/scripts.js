@@ -1,9 +1,4 @@
 // =================BackEnd===================
-var numOne;
-var numTen;
-var numHun;
-var numTho;
-var romeNum = [];
 // var romeInt = [1000, 500, 100, 50, 10, 5, 1]
 // var whichRome = function(num) {
 //   if (num === 1) {
@@ -28,7 +23,12 @@ var romeNum = [];
 //     return 'M';
 //   }
 // };
-var romanizer = function() {
+var romanizer = function(number) {
+  var romeNum = [];
+  var numOne = (number % 10);
+  var numTen = ((number % 100) - ((number % 100)%10))/10;
+  var numHun = ((number % 1000) - ((number % 1000) % 100))/100;
+  var numTho = (number - (number % 1000))/1000;
   for (i = 0; i < numTho; i++)  {
       romeNum.push("M");
   };
@@ -99,6 +99,7 @@ var romanizer = function() {
       romeNum.push("I");
     }
   };
+  return romeNum.join('');
 };
   // for (i = 0; i < romeInt.length; i++) {
   //   // debugger;
@@ -126,13 +127,10 @@ $(function() {
   $('#romannumeral').submit(function(event) {
     event.preventDefault();
     var number = parseInt($('#numbers').val());
-    numOne = (number % 10);
-    numTen = ((number % 100) - ((number % 100)%10))/10;
-    numHun = ((number % 1000) - ((number % 1000) % 100))/100;
-    numTho = (number - (number % 1000))/1000;
-    // $('#results').text(romanizer(number));
-    romanizer();
-    $('#results').text(romeNum.join(''));
+
+
+    var results = romanizer(number);
+    $('#results').text(results);
     $('#result').show();
     $('#romannumeral').toggle();
   });

@@ -11,14 +11,18 @@ _This website will translate your numbers into Roman numerals._
 ## Specs
 | Behavior        | Input           | Outcome  |
 | ------------- |:-------------:| -----:|
-| Able to output the closest single Roman numeral to the input number at position [0]    | 60 | L |
-| If there is a smaller Roman numeral before V then said Roman numeral will subtract from V     |   4 | IV
-| If there is a smaller Roman numeral after V then said Roman numeral will add to V  | 6     |    VI |
-| If there is a smaller Roman numeral before the larger Roman numeral then said Roman numeral will subtract from larger  |  9    |    IX |
-| If there is a larger Roman numeral before the smaller Roman numeral then said Roman numeral will add to larger | 11     |    XI   |
-| A letter can be repeated only three times | 300     |    XXX |
-| Only subtract powers of ten (I, X, or C, but not V, L, or D)   |   95 | XCV
-| Do not subtract a number from one that is more than 10 times greater (that is, you can subtract 1 from 10 [IX] but not 1 from 20—there is no such number as IXX.)    | 99 | XCIX  |
+| Input number is converted to X's and I's    | 32 | XXXII |
+| The last digit will behave so that 4 will be IV |   4 | IV
+| The last digit will behave so that between 8 and 5, it will be V plus the remainder of I's |       7 |    VII |
+| The last digit will behave so that 9 will be IX |       9 |    IX |
+| The second to last digit will behave so that 40 will be LX |       40 |    LX |
+| The second to last digit will behave so that between 80 and 50, it will be L plus the remainder of X's |       60 |    LX |
+| The second to last digit will behave so that 90 will be XC |       90 |    XC |
+| The third to last digit will behave so that 400 will be CD |       400 |    CD |
+| The third to last digit will behave so that between 800 and 500, it will be D plus the remainder of C's |       600 |    DC |
+| The third to last digit will behave so that 900 will be CM |       900 |    CM |
+| The fourth to last digit will behave so that 1100 will be MC |       1100 |    MC |
+
 
 ## Setup/Installation Requirements
 
